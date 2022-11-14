@@ -32,21 +32,21 @@ class Calculator(QWidget):
         button_layout = QGridLayout()
 
         b_clear = CalculatorButton("CA", self.clear)
-        b_decimal = CalculatorButton(".", lambda: self.update_screen("."))
-        b_0 = CalculatorButton("0", lambda: self.update_screen("0"))
-        b_1 = CalculatorButton("1", lambda: self.update_screen("1"))
-        b_2 = CalculatorButton("2", lambda: self.update_screen("2"))
-        b_3 = CalculatorButton("3", lambda: self.update_screen("3"))
-        b_4 = CalculatorButton("4", lambda: self.update_screen("4"))
-        b_5 = CalculatorButton("5", lambda: self.update_screen("5"))
-        b_6 = CalculatorButton("6", lambda: self.update_screen("6"))
-        b_7 = CalculatorButton("7", lambda: self.update_screen("7"))
-        b_8 = CalculatorButton("8", lambda: self.update_screen("8"))
-        b_9 = CalculatorButton("9", lambda: self.update_screen("9"))
-        b_plus = CalculatorButton("+", lambda: self.update_screen("+"))
-        b_minus = CalculatorButton("-", lambda: self.update_screen("-"))
-        b_multiply = CalculatorButton("*", lambda: self.update_screen("*"))
-        b_divide = CalculatorButton("/", lambda: self.update_screen("/"))
+        b_decimal = CalculatorButton(".", lambda: self.update_result_screen("."))
+        b_0 = CalculatorButton("0", lambda: self.update_result_screen("0"))
+        b_1 = CalculatorButton("1", lambda: self.update_result_screen("1"))
+        b_2 = CalculatorButton("2", lambda: self.update_result_screen("2"))
+        b_3 = CalculatorButton("3", lambda: self.update_result_screen("3"))
+        b_4 = CalculatorButton("4", lambda: self.update_result_screen("4"))
+        b_5 = CalculatorButton("5", lambda: self.update_result_screen("5"))
+        b_6 = CalculatorButton("6", lambda: self.update_result_screen("6"))
+        b_7 = CalculatorButton("7", lambda: self.update_result_screen("7"))
+        b_8 = CalculatorButton("8", lambda: self.update_result_screen("8"))
+        b_9 = CalculatorButton("9", lambda: self.update_result_screen("9"))
+        b_plus = CalculatorButton("+", lambda: self.update_result_screen("+"))
+        b_minus = CalculatorButton("-", lambda: self.update_result_screen("-"))
+        b_multiply = CalculatorButton("*", lambda: self.update_result_screen("*"))
+        b_divide = CalculatorButton("/", lambda: self.update_result_screen("/"))
         b_result = CalculatorButton("=", self.calculate)
 
         button_layout.addWidget(b_clear, 0, 0, 1, 3)
@@ -70,7 +70,7 @@ class Calculator(QWidget):
         main_layout.addLayout(screen_layout)
         main_layout.addLayout(button_layout, stretch=2)
 
-    def update_screen(self, value):
+    def update_result_screen(self, value):
         if self.result == "0":
             self.result = value
         else:
