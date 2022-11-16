@@ -31,7 +31,7 @@ class Calculator(QWidget):
 
         button_layout = QGridLayout()
 
-        b_clear = CalculatorButton("CA", self.clear)
+        b_clear = CalculatorButton("CLEAR", self.clear)
         b_decimal = CalculatorButton(".", lambda: self.update_result_screen("."))
         b_0 = CalculatorButton("0", lambda: self.update_result_screen("0"))
         b_1 = CalculatorButton("1", lambda: self.update_result_screen("1"))
