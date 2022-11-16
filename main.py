@@ -1,5 +1,6 @@
 import sys
 from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import (
     QApplication, QWidget, QHBoxLayout, QPushButton, QLabel, QVBoxLayout, QGridLayout
 )
@@ -8,6 +9,7 @@ from PyQt6.QtWidgets import (
 class CalculatorButton(QPushButton):
     def __init__(self, value, action=None) -> None:
         super().__init__(text=value)
+        # self.setFont(QFont("Arial", 15))
 
         if action is not None:
             self.clicked.connect(action)
@@ -26,13 +28,15 @@ class Calculator(QWidget):
 
         screen_layout = QHBoxLayout()
         self.result_screen = QLabel(self.result)
+        self.result_screen.setFont(QFont("Helvetica", 20))
         screen_layout.addWidget(
             self.result_screen, alignment=Qt.AlignmentFlag.AlignRight)
 
         button_layout = QGridLayout()
 
         b_clear = CalculatorButton("CLEAR", self.clear)
-        b_decimal = CalculatorButton(".", lambda: self.update_result_screen("."))
+        b_decimal = CalculatorButton(
+            ".", lambda: self.update_result_screen("."))
         b_0 = CalculatorButton("0", lambda: self.update_result_screen("0"))
         b_1 = CalculatorButton("1", lambda: self.update_result_screen("1"))
         b_2 = CalculatorButton("2", lambda: self.update_result_screen("2"))
@@ -45,8 +49,10 @@ class Calculator(QWidget):
         b_9 = CalculatorButton("9", lambda: self.update_result_screen("9"))
         b_plus = CalculatorButton("+", lambda: self.update_result_screen("+"))
         b_minus = CalculatorButton("-", lambda: self.update_result_screen("-"))
-        b_multiply = CalculatorButton("*", lambda: self.update_result_screen("*"))
-        b_divide = CalculatorButton("/", lambda: self.update_result_screen("/"))
+        b_multiply = CalculatorButton(
+            "*", lambda: self.update_result_screen("*"))
+        b_divide = CalculatorButton(
+            "/", lambda: self.update_result_screen("/"))
         b_result = CalculatorButton("=", self.calculate)
 
         button_layout.addWidget(b_clear, 0, 0, 1, 3)
